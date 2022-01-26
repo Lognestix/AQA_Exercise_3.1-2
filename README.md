@@ -2,9 +2,9 @@
 ```yml
 version: '3.7'
 services:
-  openjdk-api:
+  my-java-app:
     build: .
-    image: openjdk-api:1.0
+    image: my-java-app:1.0
     ports:
       - '9999:9999'
 ```
@@ -12,7 +12,7 @@ services:
 FROM openjdk:8-slim
 WORKDIR /usr/src/myapp
 COPY . .
-RUN javac Main.java
-CMD ["java", "Main"]
+RUN java -jar db-api-for-docker.jar
+CMD ["java", "-jar db-api-for-docker.jar"]
 EXPOSE 9999
 ```
